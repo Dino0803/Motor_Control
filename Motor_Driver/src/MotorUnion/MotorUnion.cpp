@@ -417,7 +417,7 @@ const int &MotorUnion::Set_Velocity(int id, int mode, bool enable, int velocity)
 int MotorUnion::Leg_id(int id)
 {
 
-	const int arr[] = {0, 2, 4, 8}; //key in current motor id
+	const int arr[] = {1, 2, 4, 8}; //key in current motor id
 	const int n = sizeof(arr) / sizeof(arr[0]);
 	int i = 0;
 	while (i < n)
@@ -436,19 +436,19 @@ const int MotorUnion::Sync_Drive(int driver1_id, int driver2_id, int driver3_id,
 {
 
 	Set_Velocity(Leg_id(driver1_id), 1, 1, velocity);
-	Set_Velocity(Leg_id(driver2_id), 1, 1, -velocity);
-	Set_Velocity(Leg_id(driver3_id), 1, 1, velocity);
-	Set_Velocity(Leg_id(driver4_id), 1, 1, -velocity);
+	// Set_Velocity(Leg_id(driver2_id), 1, 1, -velocity);
+	// Set_Velocity(Leg_id(driver3_id), 1, 1, velocity);
+	// Set_Velocity(Leg_id(driver4_id), 1, 1, -velocity);
 	sleep(time);
 	Set_Velocity(Leg_id(driver1_id), 1, 1, 0);
-	Set_Velocity(Leg_id(driver2_id), 1, 1, 0);
-	Set_Velocity(Leg_id(driver3_id), 1, 1, 0);
-	Set_Velocity(Leg_id(driver4_id), 1, 1, 0);
+	// Set_Velocity(Leg_id(driver2_id), 1, 1, 0);
+	// Set_Velocity(Leg_id(driver3_id), 1, 1, 0);
+	// Set_Velocity(Leg_id(driver4_id), 1, 1, 0);
 	sleep(1);
 	SetMotor_TorqueEnable(Leg_id(driver1_id), false);
-	SetMotor_TorqueEnable(Leg_id(driver2_id), false);
-	SetMotor_TorqueEnable(Leg_id(driver3_id), false);
-	SetMotor_TorqueEnable(Leg_id(driver4_id), false);
+	// SetMotor_TorqueEnable(Leg_id(driver2_id), false);
+	// SetMotor_TorqueEnable(Leg_id(driver3_id), false);
+	// SetMotor_TorqueEnable(Leg_id(driver4_id), false);
 }
 
 const int MotorUnion::Drive(int driver1_id, int velocity, int time)
@@ -485,53 +485,53 @@ const int MotorUnion::TurnRight(int Velocity, int Right_key, int time)
 {
 
 	cout << " Turn right : " << time << " seconds." << endl;
-	Set_Velocity(Leg_id(0), 1, 1, Velocity);
-	Set_Velocity(Leg_id(2), 1, 1, Velocity);
-	Set_Velocity(Leg_id(4), 1, 1, Velocity);
-	Set_Velocity(Leg_id(8), 1, 1, Velocity);
+	Set_Velocity(Leg_id(1), 1, 1, Velocity);
+	// Set_Velocity(Leg_id(2), 1, 1, Velocity);
+	// Set_Velocity(Leg_id(4), 1, 1, Velocity);
+	// Set_Velocity(Leg_id(8), 1, 1, Velocity);
 	sleep(time);
-	Set_Velocity(Leg_id(0), 1, 1, 0);
-	Set_Velocity(Leg_id(2), 1, 1, 0);
-	Set_Velocity(Leg_id(4), 1, 1, 0);
-	Set_Velocity(Leg_id(8), 1, 1, 0);
+	Set_Velocity(Leg_id(1), 1, 1, 0);
+	// Set_Velocity(Leg_id(2), 1, 1, 0);
+	// Set_Velocity(Leg_id(4), 1, 1, 0);
+	// Set_Velocity(Leg_id(8), 1, 1, 0);
 	sleep(1);
-	SetMotor_TorqueEnable(Leg_id(0), false);
-	SetMotor_TorqueEnable(Leg_id(2), false);
-	SetMotor_TorqueEnable(Leg_id(4), false);
-	SetMotor_TorqueEnable(Leg_id(8), false);
+	SetMotor_TorqueEnable(Leg_id(1), false);
+	// SetMotor_TorqueEnable(Leg_id(2), false);
+	// SetMotor_TorqueEnable(Leg_id(4), false);
+	// SetMotor_TorqueEnable(Leg_id(8), false);
 }
 
 const int MotorUnion::TurnLeft(int Velocity, int Right_key, int time)
 {
 
 	cout << " Turn left : " << time << " seconds." << endl;
-	Set_Velocity(Leg_id(0), 1, 1, -Velocity);
-	Set_Velocity(Leg_id(2), 1, 1, -Velocity);
-	Set_Velocity(Leg_id(4), 1, 1, -Velocity);
-	Set_Velocity(Leg_id(8), 1, 1, -Velocity);
+	Set_Velocity(Leg_id(1), 1, 1, -Velocity);
+	// Set_Velocity(Leg_id(2), 1, 1, -Velocity);
+	// Set_Velocity(Leg_id(4), 1, 1, -Velocity);
+	// Set_Velocity(Leg_id(8), 1, 1, -Velocity);
 	sleep(time);
-	Set_Velocity(Leg_id(0), 1, 1, 0);
-	Set_Velocity(Leg_id(2), 1, 1, 0);
-	Set_Velocity(Leg_id(4), 1, 1, 0);
-	Set_Velocity(Leg_id(8), 1, 1, 0);
+	Set_Velocity(Leg_id(1), 1, 1, 0);
+	// Set_Velocity(Leg_id(2), 1, 1, 0);
+	// Set_Velocity(Leg_id(4), 1, 1, 0);
+	// Set_Velocity(Leg_id(8), 1, 1, 0);
 	sleep(1);
-	SetMotor_TorqueEnable(Leg_id(0), false);
-	SetMotor_TorqueEnable(Leg_id(2), false);
-	SetMotor_TorqueEnable(Leg_id(4), false);
-	SetMotor_TorqueEnable(Leg_id(8), false);
+	SetMotor_TorqueEnable(Leg_id(1), false);
+	// SetMotor_TorqueEnable(Leg_id(2), false);
+	// SetMotor_TorqueEnable(Leg_id(4), false);
+	// SetMotor_TorqueEnable(Leg_id(8), false);
 }
 
 const int MotorUnion::GoStraight(int Velocity, int Straight_key, int time)
 {
 	cout << " Go straight : " << time << " seconds." << endl;
-	Sync_Drive(0, 2, 4, 8, Velocity, time);
+	Sync_Drive(1, 2, 4, 8, Velocity, time);
 	// Sync_Drive(0, 2, Velocity, time);
 }
 
 const int MotorUnion::GoBack(int Velocity, int Back_key, int time)
 {
 	cout << " Go back : " << time << " seconds." << endl;
-	Sync_Drive(0, 2, 4, 8, -Velocity, time);
+	Sync_Drive(1, 2, 4, 8, -Velocity, time);
 }
 
 int MotorUnion::KeepMoving(int Velocity, int KeepMove_key)
@@ -540,22 +540,22 @@ int MotorUnion::KeepMoving(int Velocity, int KeepMove_key)
 	cout << " Keep moving. " << endl;
 	while (KeepMove_key == 107)
 	{
-		Set_Velocity(Leg_id(0), 1, 1, Velocity);
-		Set_Velocity(Leg_id(2), 1, 1, -Velocity);
-		Set_Velocity(Leg_id(4), 1, 1, Velocity);
-		Set_Velocity(Leg_id(8), 1, 1, -Velocity);
+		Set_Velocity(Leg_id(1), 1, 1, Velocity);
+		// Set_Velocity(Leg_id(2), 1, 1, -Velocity);
+		// Set_Velocity(Leg_id(4), 1, 1, Velocity);
+		// Set_Velocity(Leg_id(8), 1, 1, -Velocity);
 		cout << " Press any key except 'k' to stop. " << endl;
 		KeepMove_key = scanKeyboard();
 
-		Set_Velocity(Leg_id(0), 1, 1, 0);
-		Set_Velocity(Leg_id(2), 1, 1, 0);
-		Set_Velocity(Leg_id(4), 1, 1, 0);
-		Set_Velocity(Leg_id(8), 1, 1, 0);
+		Set_Velocity(Leg_id(1), 1, 1, 0);
+		// Set_Velocity(Leg_id(2), 1, 1, 0);
+		// Set_Velocity(Leg_id(4), 1, 1, 0);
+		// Set_Velocity(Leg_id(8), 1, 1, 0);
 		sleep(1);
-		SetMotor_TorqueEnable(Leg_id(0), false);
-		SetMotor_TorqueEnable(Leg_id(2), false);
-		SetMotor_TorqueEnable(Leg_id(4), false);
-		SetMotor_TorqueEnable(Leg_id(8), false);
+		SetMotor_TorqueEnable(Leg_id(1), false);
+		// SetMotor_TorqueEnable(Leg_id(2), false);
+		// SetMotor_TorqueEnable(Leg_id(4), false);
+		// SetMotor_TorqueEnable(Leg_id(8), false);
 	}
 	return Stop;
 }

@@ -7,36 +7,37 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    MotorUnion motor_driver1({0, 2, 4, 8}, {"Mx28", "Mx28", "Mx28", "Mx106"}); //Mx106 Vmax 210  //Mx28  Vmax 230
-
+    MotorUnion motor_driver({1}, {"Mx106"}); 
+    motor_driver.SetMotor_Operating_Mode(0, 1);
+    motor_driver.SetMotor_TorqueEnable(0, true);
     while (1)
     {
         cout << "-------------Type  SpeedMode( 1, 2, 3 ) : Direction( w(Go), s(Back), a(Left), d(Right) ) : Time( Interger )----------------"
              << endl;
         //motor_driver2.Sync_Drive(4, 8, 100, 2);
-        int speed_mode = motor_driver1.scanKeyboard();
+        int speed_mode = motor_driver.scanKeyboard();
         int speed;
         int key;
         int time;
 
         if (speed_mode == 10)
         {
-            speed_mode = motor_driver1.scanKeyboard();
+            speed_mode = motor_driver.scanKeyboard();
         }
 
         switch (speed_mode)
         {
         case 49:
             speed = 77;
-            key = motor_driver1.scanKeyboard();
+            key = motor_driver.scanKeyboard();
             break;
         case 50:
             speed = 154;
-            key = motor_driver1.scanKeyboard();
+            key = motor_driver.scanKeyboard();
             break;
         case 51:
             speed = 230;
-            key = motor_driver1.scanKeyboard();
+            key = motor_driver.scanKeyboard();
             break;
         default:
             speed = 0;
@@ -51,7 +52,7 @@ int main(int argc, char *argv[])
         }
         else if (key == 107)
         {
-            key = motor_driver1.KeepMoving(speed, key);
+            key = motor_driver.KeepMoving(speed, key);
         }
 
         switch (key)
@@ -60,19 +61,19 @@ int main(int argc, char *argv[])
             break;
         case 100:
             cin >> time;
-            motor_driver1.TurnRight(speed, key, time);
+            motor_driver.TurnRight(speed, key, time);
             break;
         case 97:
             cin >> time;
-            motor_driver1.TurnLeft(speed, key, time);
+            motor_driver.TurnLeft(speed, key, time);
             break;
         case 119:
             cin >> time;
-            motor_driver1.GoStraight(speed, key, time);
+            motor_driver.SetMotor_Velocity(0, 100);
             break;
         case 115:
             cin >> time;
-            motor_driver1.GoBack(speed, key, time);
+            motor_driver.GoBack(speed, key, time);
             break;
         default:
             cout << endl

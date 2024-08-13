@@ -1,7 +1,7 @@
 #include "MotorMx.h"
 
 MotorMx::MotorMx()
-	: Motor(57600, 7, 64, 104, 108, 112, 116, 11, 126, 128, 132, 1, 4, 4, 4, 4, 2, 4, 4) {}
+	: Motor(4000000, 7, 64, 104, 108, 112, 116, 11, 126, 128, 132, 1, 4, 4, 4, 4, 2, 4, 4) {}
 
 	/* Dynamixel attributes (see e-manual) 
 	const int BAUDRATE;
@@ -27,7 +27,7 @@ MotorMx::MotorMx()
 	*/
 
 MotorMx::MotorMx(const unsigned char &MotorID, const string &MotorModel)
-	: Motor(57600, MotorID, 64, 104, 108, 112, 116, 11, 126, 128, 132, 1, 4, 4, 4, 4, 2, 4, 4)
+	: Motor(4000000, MotorID, 64, 104, 108, 112, 116, 11, 126, 128, 132, 1, 4, 4, 4, 4, 2, 4, 4)
 {
 	if (MotorModel == "Mx28" || MotorModel == "Mx106")
 	{
